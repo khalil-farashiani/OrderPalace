@@ -6,7 +6,7 @@ import "fmt"
 // returns the exception number by performing a bitwise XOR operation on all the numbers in the slice.
 // The ^ operator in Go is used for bitwise XOR.
 // Notice that this solution can respond correct answer only when slice or array item repeated twice except for 1 number
-//(exactly that is question say)
+// (exactly that is question say) more detail on readme file beside main function
 func findExceptionNumber(arr []int) int {
 	result := 0
 	for _, num := range arr {

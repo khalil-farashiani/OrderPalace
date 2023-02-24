@@ -28,9 +28,8 @@ function run_app() {
 
   # shellcheck disable=SC2164
   cd ./bin/
-  ./Sender 8000
-  echo "success"
-
+  ./Sender 8000 &
+  ./Receiver 8080
 }
 
 run_app

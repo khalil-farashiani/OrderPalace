@@ -17,5 +17,5 @@ func findExceptionNumber(arr []int) int {
 func main() {
 	arr := []int{2, 2, 5, 6, 5, 6, 9}
 	exceptionNumber := findExceptionNumber(arr)
-	fmt.Println(exceptionNumber) // prints 6
+	fmt.Println(exceptionNumber) // prints 9
 }

@@ -16,7 +16,7 @@ type SendOrderResponse struct {
 }
 
 const (
-	requiredIdErrorMsg    = "id is required field"
+	requiredIdErrorMsg    = "order_id is required field"
 	requiredPriceErrorMsg = "price is required field and should be positive integer"
 	requiredTitleErrorMsg = "title cannot be empty"
 )

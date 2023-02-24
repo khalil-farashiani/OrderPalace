@@ -13,7 +13,8 @@ import (
 )
 
 const (
-	RedisDSN = "REDIS_DSN"
+	redisDSN     = "REDIS_DSN"
+	portErrorMsg = "port should be pass as argument"
 )
 
 func main() {
@@ -22,7 +23,7 @@ func main() {
 
 	routes := getRoutes(*r)
 	server := &http.Server{
-		Addr:    appSetting.PortServer,
+		Addr:    ":" + appSetting.PortServer,
 		Handler: routes,
 	}
 
@@ -53,10 +54,13 @@ func main() {
 	log.Println("Server stopped")
 }
 
-func GetAppConfig() *config.AppConfig {
-	return &config.AppConfig{
+func GetAppConfig() config.AppConfig {
+	if len(os.Args) < 2 {
+		log.Fatalf(portErrorMsg)
+	}
+	return config.AppConfig{
 		InProduction: false,
-		BrokerDSN:    os.Getenv(RedisDSN),
-		PortServer:   ":8080",
+		BrokerDSN:    os.Getenv(redisDSN),
+		PortServer:   os.Args[1],
 	}
 }

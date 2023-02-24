@@ -22,7 +22,7 @@ func (q RedisQueue) AddOrder(ctx context.Context, order *entities.Order) error {
 	//	return fmt.Errorf("failed to create context with Redis connection: %v", err)
 	//}
 
-	if err := conn.Send("RPUSH", "orders", orderJSON); err != nil {
+	if err := conn.Send("PUBLISH", "orders", orderJSON); err != nil {
 		return fmt.Errorf("failed to send order to Redis queue: %v", err)
 	}
 

@@ -19,7 +19,7 @@ const (
 func main() {
 	appSetting := GetAppConfig()
 	redisQ := redis.InitRedis(appSetting.BrokerDSN)
-	mysqlStore := mysql.InitMySql("default_user:default_password@tcp(127.0.0.1:3306)/example_db")
+	mysqlStore := mysql.InitMySql(appSetting.MySQLDSN)
 	orderInteractor := order.New(*redisQ, mysqlStore)
 
 	log.Println("start consuming orders")

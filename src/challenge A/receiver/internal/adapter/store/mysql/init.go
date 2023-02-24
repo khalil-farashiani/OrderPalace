@@ -3,6 +3,7 @@ package mysql
 import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	"strings"
 )
 
 type MySQLStore struct {
@@ -10,7 +11,7 @@ type MySQLStore struct {
 }
 
 func InitMySql(dsn string) MySQLStore {
-	database, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	database, err := gorm.Open(mysql.Open(strings.TrimSpace(dsn)), &gorm.Config{})
 
 	if err != nil {
 		panic("Failed to connect to database!")

@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-example_password}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-example_db}
+      MYSQL_USER: ${MYSQL_USER:-default_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-default_password}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
+
+volumes:
+  mysql_data:

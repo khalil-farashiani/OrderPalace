@@ -15,6 +15,7 @@ func findExceptionNumber(arr []int) int {
 	return result
 }
 func main() {
+	// this is sample for testing you can change this slice
 	arr := []int{2, 2, 5, 6, 5, 6, 9}
 	exceptionNumber := findExceptionNumber(arr)
 	fmt.Println(exceptionNumber) // prints 9

@@ -2,12 +2,13 @@ package dto
 
 import (
 	"errors"
-	"github.com/khalil-farashiani/OrderPalace/sender/internal/entities"
 	"strings"
 )
 
 type SendOrderRequest struct {
-	entities.Order
+	ID    uint64 `json:"order_id"`
+	Price uint64 `json:"price"`
+	Title string `json:"title"`
 }
 
 type SendOrderResponse struct {

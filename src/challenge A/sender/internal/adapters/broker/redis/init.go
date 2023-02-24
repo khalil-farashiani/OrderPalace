@@ -1,6 +1,9 @@
 package redis
 
-import "github.com/gomodule/redigo/redis"
+import (
+	"github.com/gomodule/redigo/redis"
+	"strings"
+)
 
 // RedisQueue represents a Redis-backed queue for storing orders.
 type RedisQueue struct {
@@ -17,7 +20,7 @@ func InitRedis(dsn string) *RedisQueue {
 		MaxIdle:   5,
 		MaxActive: 10,
 		Dial: func() (redis.Conn, error) {
-			return redis.Dial("tcp", dsn, redis.DialPassword("testpass"))
+			return redis.Dial("tcp", strings.TrimSpace(dsn))
 		},
 	}
 	redisQ := NewRedisQueue(redisPool)

@@ -8,6 +8,7 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE:-example_db}
       MYSQL_USER: ${MYSQL_USER:-default_user}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-default_password}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD:-root_password}
     volumes:
       - mysql_data:/var/lib/mysql
     ports:
